@@ -9,10 +9,10 @@ import {
   XVERSE,
   useLaserEyes,
 } from "@omnisat/lasereyes";
-import unisatImg from "@/assets/unisat.svg";
-import xverseImg from "@/assets/xverse.png";
-// import oylImg from "@/assets/oyl-black.svg";
-// import oylWhiteImg from "@/assets/oyl-white.svg";
+import unisatImg from "../assets/unisat.svg";
+import xverseImg from "../assets/xverse.png";
+// import oylImg from "../assets/oyl-black.svg";
+// import oylWhiteImg from "../assets/oyl-white.svg";
 import { useMemo } from "react";
 
 export interface WalletInfo {

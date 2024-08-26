@@ -9,15 +9,16 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "../ui/card";
+} from "@/components/ui/card";
 import useSupportedWallets from "@/hooks/useSupportedWallets";
 import "@/i18n/setup";
 import { Button } from "../ui/button";
 import { cn } from "@/lib/utils";
 import WalletImage from "./WalletImage";
 import { ChevronLeft, ExternalLinkIcon } from "lucide-react";
-import { Alert } from "../ui/alert";
+import { Alert } from "@/components/ui/alert";
 import { useState, useCallback } from "react";
+import "@/components/index.css";
 
 export interface ConnectModalProps {
   open: boolean;

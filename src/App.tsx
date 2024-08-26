@@ -1,10 +1,10 @@
 // import { LaserEyesProvider } from "@omnisat/lasereyes";
 // import ConnectWalletModal from "./components/modal/ConnectModal";
 import { I18nextProvider } from "react-i18next";
-import { i18n } from "./i18n/setup";
+import { i18n } from "../lib/i18n/setup";
 import "./App.css";
-import ConnectWalletButton from "./components/modal/ConnectButton";
-import { LaserEyesModalProvider } from "./providers/LaserEyesModalProvider";
+import ConnectWalletButton from "@/components/modal/ConnectButton";
+import { LaserEyesModalProvider } from "@/providers/LaserEyesModalProvider";
 
 function App() {
   return (

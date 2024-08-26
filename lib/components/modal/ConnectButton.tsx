@@ -1,9 +1,9 @@
 // import React from "react";
-import { useLaserEyesModal } from "@/providers/LaserEyesModalProvider";
+import { useLaserEyesModal } from "../../providers/LaserEyesModalProvider";
 import { Button } from "../ui/button";
 import { useTranslation } from "react-i18next";
 import { useLaserEyes } from "@omnisat/lasereyes";
-import { formatAddress } from "@/lib/utils";
+import { formatAddress } from "../../lib/utils";
 import { useCallback } from "react";
 
 export default function ConnectWalletButton() {

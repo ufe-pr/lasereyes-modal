@@ -1,5 +1,5 @@
-import { WalletInfo } from "@/hooks/useSupportedWallets";
-import { cn } from "@/lib/utils";
+import { WalletInfo } from "lib/hooks/useSupportedWallets";
+import { cn } from "../../lib/utils";
 // import { WalletIcon } from "@omnisat/lasereyes";
 
 export default function WalletImage({

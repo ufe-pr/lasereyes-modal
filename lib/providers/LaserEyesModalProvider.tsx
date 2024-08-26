@@ -8,9 +8,15 @@ import {
   TESTNET,
   useLaserEyes,
 } from "@omnisat/lasereyes";
-import { FC, ReactNode, createContext, useCallback, useContext, useState } from "react";
+import {
+  ReactNode,
+  createContext,
+  useCallback,
+  useContext,
+  useState,
+} from "react";
 
-export interface LaserEyesContext {
+interface LaserEyesContext {
   isOpen: boolean;
   isLoading: boolean;
   showModal: () => void;
@@ -35,10 +41,13 @@ export const useLaserEyesModal = (): LaserEyesContext => {
   return useContext(laserEyesModalContext);
 };
 
-export const LaserEyesModalProvider: FC<{
+export function LaserEyesModalProvider({
+  children,
+  config,
+}: {
   children: ReactNode | ReactNode[];
   config?: LaserEyesModalConfig;
-}> = ({ children, config }) => {
+}) {
   const [isOpen, setIsOpen] = useState(false);
   const [modalConfig, setConfig] = useState<LaserEyesModalConfig>(
     config || {
@@ -78,4 +87,4 @@ export const LaserEyesModalProvider: FC<{
       </laserEyesModalContext.Provider>
     </LaserEyesProvider>
   );
-};
+}

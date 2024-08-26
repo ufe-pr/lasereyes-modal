@@ -8,7 +8,7 @@ import {
 import { createPortal } from "react-dom";
 import { RemoveScroll } from "react-remove-scroll";
 import { FocusTrap } from "./FocusTrap";
-import { cn } from "@/lib/utils";
+import { cn } from "../../lib/utils";
 
 const stopPropagation: MouseEventHandler<unknown> = (event) =>
   event.stopPropagation();
