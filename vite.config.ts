@@ -11,7 +11,7 @@ export default defineConfig({
     nodePolyfills({
       include: ["buffer"],
     }),
-    dts({ tsconfigPath: "./tsconfig.build.json", rollupTypes: true }),
+    dts({ tsconfigPath: "./tsconfig.build.json" }),
   ],
   resolve: {
     alias: {
@@ -24,7 +24,7 @@ export default defineConfig({
       formats: ["es"],
     },
     rollupOptions: {
-      external: ["react", "react-dom", "react/jsx-runtime", "tailwindcss"],
+      external: ["react", "react-dom", "react/jsx-runtime", "@omnisat/lasereyes"],
       output: {
         globals: {
           react: "React",
