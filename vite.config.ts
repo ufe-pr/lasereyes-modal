@@ -24,8 +24,14 @@ export default defineConfig({
       formats: ["es"],
     },
     rollupOptions: {
-      external: ["react", "react-dom", "react/jsx-runtime", "@omnisat/lasereyes"],
+      external: [
+        "react",
+        "react-dom",
+        "react/jsx-runtime",
+        "@omnisat/lasereyes",
+      ],
       output: {
+        entryFileNames: "[name].js",
         globals: {
           react: "React",
           "react-dom": "ReactDOM",
