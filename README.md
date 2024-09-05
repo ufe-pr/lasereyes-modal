@@ -69,11 +69,9 @@ Then create a ⁠` craco.config.js` ⁠file in the root directory of your pr
 const webpack = require('webpack');
 module.exports = {
   webpack: {
-    configure: (webpackConfig) => {
-      webpackConfig.module = {
-        ...webpackConfig.module,
+    configure: {
+      module: {
         rules: [
-          ...webpackConfig.module.rules,
           {
             test: /\.m?js$/,
             resolve: {
@@ -81,10 +79,8 @@ module.exports = {
             },
           },
         ],
-      };
-
-      return webpackConfig;
-    },
+      },
+    }
   },
 };
 
@@ -116,23 +112,17 @@ export default defineConfig({
 const webpack = require('webpack');
 module.exports = {
   webpack: {
-    configure: (webpackConfig) => {
-      webpackConfig.resolve.fallback = {
-        ...webpackConfig.resolve.fallback,
+    configure: {
+      fallback: {
         buffer: require.resolve('buffer/'),
-      };
-      webpackConfig.plugins = [
-        ...webpackConfig.plugins,
-        ...[
-          new webpack.ProvidePlugin({
-            Buffer: ['buffer', 'Buffer'],
-          }),
-        ],
-      ];
-      webpackConfig.module = {
-        ...webpackConfig.module,
+      },
+      plugins: [
+        new webpack.ProvidePlugin({
+          Buffer: ['buffer', 'Buffer'],
+        }),
+      ],
+      module: {
         rules: [
-          ...webpackConfig.module.rules,
           {
             test: /\.m?js$/,
             resolve: {
@@ -140,9 +130,7 @@ module.exports = {
             },
           },
         ],
-      };
-
-      return webpackConfig;
+      },
     },
   },
 };
