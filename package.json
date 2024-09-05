@@ -25,12 +25,12 @@
     "tailwind-merge": "^2.4.0"
   },
   "peerDependencies": {
-    "@omnisat/lasereyes": "^0.0.33",
+    "@omnisat/lasereyes": "^0.0.42",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@omnisat/lasereyes": "^0.0.33",
+    "@omnisat/lasereyes": "^0.0.42",
     "@types/node": "^22.0.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
