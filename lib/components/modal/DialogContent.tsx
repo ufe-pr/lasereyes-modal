@@ -12,7 +12,7 @@ export default function DialogContent({
   return (
     <Card
       className={cn(
-        "lem-max-w-2xl lem-max-h-screen lem-w-full lem-rounded-none lem-rounded-t-3xl sm:lem-rounded-3xl lem-mx-auto lem-pb-[env(safe-area-inset-bottom)]",
+        "lem-max-w-2xl lem-max-h-screen lem-w-full lem-rounded-none lem-rounded-t-3xl sm:lem-rounded-3xl lem-mx-auto",
         className
       )}
     >

@@ -19,6 +19,7 @@ import { ChevronLeft, ExternalLinkIcon } from "lucide-react";
 import { Alert } from "@/components/ui/alert";
 import { useState, useCallback } from "react";
 import "@/components/index.css";
+import Spinner from "../ui/spinner";
 
 export interface ConnectModalProps {
   open: boolean;
@@ -32,9 +33,7 @@ export default function ConnectWalletModal({
   const { isConnecting, disconnect } = useLaserEyes();
   const { t } = useTranslation("common");
   const { otherWallets, installedWallets } = useSupportedWallets();
-  const [selectedWallet, setSelectedWallet] = useState<string | null>(
-    null
-  );
+  const [selectedWallet, setSelectedWallet] = useState<string | null>(null);
   const [errorMsg, setErrorMsg] = useState<string | undefined>();
 
   function resetState() {
@@ -90,7 +89,7 @@ export default function ConnectWalletModal({
         </CardHeader>
         <CardContent className="lem-space-y-6">
           {installedWallets.length > 0 && (
-            <div>
+            <div className="lem-space-y-4">
               <div>
                 <CardTitle className="lem-text-lg">
                   {t("modal.installed_wallets")}
@@ -99,7 +98,7 @@ export default function ConnectWalletModal({
                   {t("modal.installed_wallets_description")}
                 </CardDescription>
               </div>
-              <ul className="lem-mt-2 lem-gap-4 md:lem-gap-6 lem-grid lem-grid-cols-1 md:lem-grid-cols-3">
+              <ul className="lem-mt-2 lem-gap-4 md:lem-gap-6 lem-grid lem-grid-cols-1 md:lem-grid-cols-2">
                 {installedWallets.map((e) => (
                   <li key={e.connectorId}>
                     <Button
@@ -115,7 +114,7 @@ export default function ConnectWalletModal({
                       }
                       className={cn(
                         "active:lem-bg-primary/20 [&.active]:lem-bg-primary/30 lem-h-fit",
-                        "lem-p-4 lem-border-2 lem-border-primary/30 active:lem-border-primary/40 [&.active]:lem-border-primary/60 lem-rounded-2xl lem-flex lem-w-full lem-gap-4",
+                        "lem-p-4 lem-border-2 lem-border-primary/30 active:lem-border-primary/40 [&.active]:lem-border-primary/60 lem-rounded-2xl lem-flex lem-flex-wrap lem-w-full lem-gap-4",
                         "md:lem-p-8 md:lem-flex-col md:lem-items-center md:lem-justify-center",
                         {
                           active: selectedWallet === e.connectorId,
@@ -124,6 +123,9 @@ export default function ConnectWalletModal({
                     >
                       <WalletImage wallet={e} />
                       <div className="lem-font-semibold">{e.label}</div>
+                      <div className="lem-opacity-70 lem-max-w-full lem-text-wrap lem-w-full md:lem-w-auto">
+                        {t("modal.connect_your_x_wallet", { wallet: e.label })}
+                      </div>
                     </Button>
                   </li>
                 ))}
@@ -166,8 +168,19 @@ export default function ConnectWalletModal({
           )}
         </CardContent>
         <CardFooter className="lem-justify-center">
-          <Button size="lg" className="lem-w-1/2" onClick={handleConnect}>
-            {t("modal.connect")}
+          <Button
+            disabled={!selectedWallet || isConnecting}
+            size="lg"
+            className="lem-w-1/2"
+            onClick={handleConnect}
+          >
+            {!isConnecting ? (
+              t("modal.connect")
+            ) : (
+              <>
+                <Spinner /> {t("modal.loading")}
+              </>
+            )}
           </Button>
         </CardFooter>
       </DialogContent>
@@ -202,7 +215,7 @@ function IsConnectingStep({
       <div className="lem-flex lem-flex-col lem-gap-3 md:lem-gap-6 lem-justify-center lem-items-center lem-w-full lem-h-full">
         <svg
           className={cn(
-            { "lem-animate-spin": !isConnecting},
+            { "lem-animate-spin": isConnecting },
             "lem-duration-1000 lem-text-primary",
             "lem-h-8 lem-w-8 sm:lem-h-12 sm:lem-w-12 md:lem-h-16 md:lem-w-16"
           )}

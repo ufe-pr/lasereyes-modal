@@ -54,15 +54,16 @@ export function Dialog({ children, onClose, open, titleId }: DialogProps) {
                   className={cn(
                     "lem-items-end md:lem-items-center",
                     "lem-fixed lem-font-mono",
-                    "lem-backdrop-filter lem-backdrop-blur-[2px] lem-backdrop-brightness-50 lem-flex lem-justify-center",
+                    "lem-backdrop-filter lem-backdrop-blur-[1px] lem-backdrop-brightness-50 lem-flex lem-justify-center",
                     "lem-fade-in lem-duration-150 lem-ease-in lem-animate-in",
-                    "-lem-top-5 lem-bottom-0 -lem-right-5 -lem-left-5 lem-z-30"
+                    "-lem-top-5 lem-bottom-0 -lem-right-5 -lem-left-5 lem-z-30",
+                    "sm:lem-p-4 lem-pb-[env(safe-area-inset-bottom)]"
                   )}
                 >
                   <FocusTrap
                     className={cn(
                       "lem-slide-in-from-bottom-full lem-duration-300 lem-ease-in-out lem-animate-in",
-                      "lem-flex lem-flex-col lem-relative lem-slide-in-from-bottom-10 lem-fade-in-0 lem-w-full lem-max-w-[100vw] lem-max-h-[100vh] sm:lem-p-4"
+                      "lem-flex lem-flex-col lem-relative lem-slide-in-from-bottom-10 lem-fade-in-0 lem-w-auto lem-max-w-[100vw] lem-max-h-[100vh]"
                     )}
                     onClick={stopPropagation}
                     role="document"

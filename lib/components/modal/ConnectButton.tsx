@@ -1,10 +1,10 @@
-// import React from "react";
 import { useLaserEyesModal } from "../../providers/LaserEyesModalProvider";
 import { Button } from "../ui/button";
 import { useTranslation } from "react-i18next";
 import { useLaserEyes } from "@omnisat/lasereyes";
 import { formatAddress } from "../../lib/utils";
 import { useCallback } from "react";
+import Spinner from "../ui/spinner";
 
 export default function ConnectWalletButton() {
   const { t } = useTranslation("common");
@@ -22,11 +22,15 @@ export default function ConnectWalletButton() {
 
   return (
     <Button onClick={onClick} disabled={isLoading}>
-      {isLoading
-        ? t("modal.loading")
-        : connected
-        ? formatAddress(address)
-        : t("modal.connect_wallet")}
+      {isLoading ? (
+        <>
+          <Spinner className="lem-mr-2" /> {t("modal.loading")}
+        </>
+      ) : connected ? (
+        formatAddress(address)
+      ) : (
+        t("modal.connect_wallet")
+      )}
     </Button>
   );
 }

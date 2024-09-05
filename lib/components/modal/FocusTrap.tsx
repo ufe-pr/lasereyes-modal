@@ -43,7 +43,6 @@ export function FocusTrap(props: JSX.IntrinsicElements["div"]) {
             contentRef.current && moveFocusWithin(contentRef.current, "end"),
           []
         )}
-        // biome-ignore lint/a11y/noNoninteractiveTabindex: incorrect
         tabIndex={0}
       />
       <div
