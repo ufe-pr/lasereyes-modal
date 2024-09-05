@@ -10,10 +10,10 @@ function App() {
   return (
     <I18nextProvider i18n={i18n}>
       <LaserEyesModalProvider>
-      <>
-        <h1>Hello world</h1>
-        <ConnectWalletButton />
-      </>
+        <>
+          <h1>Hello world</h1>
+          <ConnectWalletButton />
+        </>
       </LaserEyesModalProvider>
     </I18nextProvider>
   );
