@@ -5,6 +5,7 @@
       "connect": "Connect",
       "error_occurred": "An error occurred",
       "connect_wallet": "Connect Your Wallet",
+      "connect_your_x_wallet": "Connect Your {{wallet}} Wallet",
       "connect_wallet_short": "Connect Wallet",
       "connecting_wallet": "Check your wallet for further actions...",
       "choose_wallet": "Choose Wallet",
