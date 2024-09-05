@@ -2,8 +2,6 @@
 
 This library serves to simplify the process of connecting to any bitcoin wallet building on top of the `@omnisat/lasereyes` library.
 
-[TOC]
-
 ## Installation
 
 Install the library and `@omnisat/lasereyes` using your favourite package manager. If you use bun,
